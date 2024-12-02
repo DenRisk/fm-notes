@@ -1,0 +1,28 @@
+.desktop-layout {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 272px 216px auto minmax(180px, 258px);
+    grid-template-rows: 82px auto;
+    grid-template-areas:    'sidebar header header header'
+                            'sidebar note-list note-details note-actions';
+
+    .desktop-sidebar {
+        grid-area: sidebar;
+    }
+
+    .desktop-header {
+        grid-area: header;
+    }
+
+    .desktop-note-list {
+        grid-area: note-list;
+    }
+
+    .desktop-note-details {
+        grid-area: note-details;
+    }
+
+    .desktop-note-actions {
+        grid-area: note-actions;
+    }
+}

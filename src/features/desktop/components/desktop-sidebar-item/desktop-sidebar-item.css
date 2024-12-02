@@ -1,0 +1,26 @@
+.desktop-sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-150);
+    column-gap: var(--spacing-100);
+    color: var(--color-neutral-700);
+    cursor: pointer;
+    background-color: var(--color-neutral-0);
+    justify-content: space-between;
+}
+
+.desktop-sidebar-item__content {
+    display: flex;
+    column-gap: var(--spacing-100);
+    align-items: center;
+
+}
+
+.desktop-sidebar-item--selected {
+    background-color: var(--color-neutral-100);
+    color: var(--color-blue-500);
+}
+
+.desktop-sidebar-item--selected .text-4 {
+    color: var(--color-neutral-950);
+}

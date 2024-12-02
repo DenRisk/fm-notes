@@ -1,0 +1,19 @@
+.mobile-add-note-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-full);
+    background-color: var(--color-blue-500);
+    height: var(--spacing-600);
+    width: var(--spacing-600);
+    color: var(--color-neutral-0);
+    position: absolute;
+    bottom: var(--spacing-300);
+    right: var(--spacing-400);
+    box-shadow: var(--box-shadow-add-btn);
+
+    @media (min-width: 768px) {
+        height: var(--spacing-800);
+        width: var(--spacing-800);
+    };
+}

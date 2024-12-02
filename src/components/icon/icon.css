@@ -1,0 +1,12 @@
+
+.icon-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+}
+
+.icon-clickable {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}

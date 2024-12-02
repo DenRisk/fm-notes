@@ -1,0 +1,26 @@
+.custom-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-150) var(--spacing-200);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-regular);
+    border-radius: var(--border-radius-8);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    column-gap: var(--spacing-050);
+}
+
+.custom-button--primary {
+    background-color: var(--color-blue-500);
+    color: var(--color-neutral-0);
+}
+
+.custom-button--secondary {
+    background-color: var(--color-neutral-200);
+    color: var(--color-neutral-600);
+}
+
+.custom-button--full-width {
+    width: 100%;
+}

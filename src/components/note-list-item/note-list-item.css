@@ -1,0 +1,15 @@
+.note-list-item {
+    padding: var(--spacing-150) 0;
+    border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.note-list-item__heading {
+    margin-bottom: var(--spacing-150);
+}
+
+.note-list-item__tag-list {
+    display: flex;
+    column-gap: var(--spacing-050);
+    flex-wrap: wrap;
+    margin-bottom: var(--spacing-150);
+}

@@ -1,0 +1,6 @@
+.tag {
+    background-color: var(--color-neutral-200);
+    color: var(--color-neutral-950);
+    padding: var(--spacing-025) var(--spacing-075);
+    border-radius: var(--border-radius-4);
+}

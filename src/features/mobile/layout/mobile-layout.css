@@ -1,0 +1,25 @@
+.mobile-layout {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 54px auto 54px;
+    grid-template-areas:    'header'
+                            'content'
+                            'navigation';
+
+    @media (min-width: 768px) {
+        grid-template-rows: 74px auto 74px;
+    }
+
+    .mobile-header {
+        grid-area: header;
+    }
+
+    .mobile-content {
+        grid-area: content;
+    }
+
+    .mobile-navigation {
+        grid-area: navigation;
+    }
+}

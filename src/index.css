@@ -1,0 +1,8 @@
+@import "styles/variables.css";
+@import 'styles/globals.css';
+@import "styles/utils.css";
+
+
+#root {
+    height: 100%;
+}

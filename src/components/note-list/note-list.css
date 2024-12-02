@@ -1,0 +1,15 @@
+.note-list__text {
+    margin-bottom: var(--spacing-150);
+}
+
+.note-list__heading {
+    margin-bottom: var(--spacing-200);
+
+    @media (min-width: 768px) {
+        margin-bottom: var(--spacing-300);
+    };
+}
+
+.note-list__btn-container {
+    margin-bottom: var(--spacing-200);
+}
