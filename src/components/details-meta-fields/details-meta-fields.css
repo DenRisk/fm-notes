@@ -1,0 +1,25 @@
+.details-meta-fields {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-200);
+    padding: var(--spacing-200) 0;
+    border-bottom: 1px solid var(--color-neutral-200);
+    margin-bottom: var(--spacing-200);
+}
+
+.details-meta-fields__field{
+    display: grid;
+    grid-template-columns: 140px auto;
+    column-gap: var(--spacing-100);
+}
+
+.details-meta-fields__label{
+    display: flex;
+    align-items: center;
+    column-gap: var(--spacing-100);
+    color: var(--color-neutral-700);
+}
+
+.details-meta-fields__data {
+    color: var(--color-neutral-950);
+}

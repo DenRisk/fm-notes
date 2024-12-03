@@ -11,14 +11,33 @@
     column-gap: var(--spacing-050);
 }
 
-.custom-button--primary {
+.custom-button--default-primary {
     background-color: var(--color-blue-500);
     color: var(--color-neutral-0);
 }
 
-.custom-button--secondary {
+.custom-button--default-secondary {
     background-color: var(--color-neutral-200);
     color: var(--color-neutral-600);
+}
+
+.custom-button--transparent-primary {
+    padding: 0;
+    background-color: transparent;
+    color: var(--color-neutral-600);
+}
+
+.custom-button--transparent-secondary {
+    padding: 0;
+    background-color: transparent;
+    color: var(--color-blue-500);
+}
+
+.custom-button--icon {
+    padding: 0;
+    background-color: transparent;
+    color: var(--color-neutral-600);
+
 }
 
 .custom-button--full-width {

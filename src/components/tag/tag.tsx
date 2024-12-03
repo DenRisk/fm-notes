@@ -1,9 +1,13 @@
 import './tag.css';
 
-export default function Tag() {
+type TagProps = {
+    tag: string
+}
+
+export default function Tag({tag}: TagProps) {
     return (
         <div className='tag text-6'>
-            React
+            {tag}
         </div>
     )
 }

@@ -1,14 +1,9 @@
-.desktop-note-details {
-    padding: var(--spacing-250) var(--spacing-300)
-}
-
-.desktop-note-details__content {
+.mobile-note-details {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
-
-.desktop-note-details__text-area {
+.mobile-note-details__text-area {
     width: 100%;
     flex-grow: 1;
     flex-shrink: 1;

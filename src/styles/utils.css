@@ -1,5 +1,6 @@
 /* Container */
 .container {
+    max-height: 100%;
     max-width: var(--max-page-width);
     margin-inline: auto;
 }

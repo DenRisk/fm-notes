@@ -1,3 +1,7 @@
+.note-list {
+    height: 100%;
+}
+
 .note-list__text {
     margin-bottom: var(--spacing-150);
 }
@@ -12,4 +16,9 @@
 
 .note-list__btn-container {
     margin-bottom: var(--spacing-200);
+}
+
+.note-list__items {
+    overflow-y: auto;
+    max-height: calc(100% - 74px - 40px);
 }
