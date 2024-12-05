@@ -1,0 +1,7 @@
+.empty-notes-text {
+    background-color: var(--color-neutral-100);
+    padding: var(--spacing-100);
+    border-radius: var(--border-radius-8);
+    border: 1px inset solid var(--color-neutral-200);
+    color: var(--color-neutral-950);
+}

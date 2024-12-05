@@ -2,7 +2,7 @@
     padding: var(--spacing-250) var(--spacing-300)
 }
 
-.desktop-note-details__content {
+.desktop-note-details__form {
     height: 100%;
     display: flex;
     flex-direction: column;

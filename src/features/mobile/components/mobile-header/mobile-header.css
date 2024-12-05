@@ -1,6 +1,24 @@
 .mobile-header {
+    h1 {
+        margin-bottom: var(--spacing-200);
+
+        @media (min-width: 1200px) {
+            margin-bottom: var(--spacing-300);
+        };
+    }
+}
+
+.mobile-header__search {
+    margin-bottom: var(--spacing-200);
     display: flex;
-    align-items: center;
-    background-color: var(--color-neutral-100);
-    padding:  0 var(--spacing-400);
+    flex-direction: column;
+    row-gap: var(--spacing-200);
+
+    p {
+        color: var(--color-neutral-700);
+
+        span {
+            color: var(--color-neutral-950);
+        }
+    }
 }

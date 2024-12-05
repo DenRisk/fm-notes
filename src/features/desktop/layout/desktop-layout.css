@@ -1,7 +1,7 @@
 .desktop-layout {
     height: 100%;
     display: grid;
-    grid-template-columns: 272px 240px auto minmax(180px, 258px);
+    grid-template-columns: 272px 290px auto minmax(160px, 258px);
     grid-template-rows: 82px auto;
     grid-template-areas:    'sidebar header header header'
                             'sidebar note-list note-details note-actions';

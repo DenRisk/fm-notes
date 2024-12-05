@@ -4,6 +4,7 @@
     border-top-right-radius: var(--spacing-200);
     background-color: var(--color-neutral-0);
     padding: var(--spacing-250) var(--spacing-200);
+    overflow-y: auto;
 
     @media (min-width: 768px) {
         padding: var(--spacing-300) var(--spacing-400);

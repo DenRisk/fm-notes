@@ -1,0 +1,15 @@
+.custom-input  {
+    border: unset;
+    color: var(--color-neutral-950);
+    text-overflow: ellipsis;
+}
+
+.custom-input:focus {
+    cursor: text;
+}
+
+.custom-input::placeholder {
+    letter-spacing: var(--letter-spacing-3);
+    color: var(--color-neutral-400);
+    text-overflow: ellipsis;
+}

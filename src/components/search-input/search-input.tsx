@@ -1,7 +1,11 @@
 import './search-input.css';
 import Icon from '../icon/icon.tsx'
 
-export function SearchInput() {
+type SearchInputProps = {
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export function SearchInput({onChange}: SearchInputProps) {
     return (
         <div className='search'>
             <Icon id='search' size={20} color='#717784'/>
@@ -9,6 +13,7 @@ export function SearchInput() {
                 type="text"
                 className='search__input'
                 placeholder="Search by title, content, or tags…"
+                onChange={onChange}
             />
         </div>
     );

@@ -1,14 +1,14 @@
-import './note-list-item.css';
+import './note-preview.css';
 import Tag from '../tag/tag.tsx'
 import {Note} from '../../types/note.ts'
 
-type NoteListItemProps = {
+type NotePreviewProps = {
     note: Note,
     isActive: boolean,
     onClick : () => void
 }
 
-export default function NoteListItem({note, isActive, onClick }: NoteListItemProps) {
+export default function NotePreview({note, isActive, onClick }: NotePreviewProps) {
     return (
         <button className={`note-list-item ${isActive ? 'note-list-item--active' : ''}`} onClick={onClick}>
             <h2 className='note-list-item__heading text-3'>{note.title}</h2>

@@ -1,39 +1,68 @@
-import NoteListItem from '../note-list-item/note-list-item.tsx'
+import NotePreview from '../note-preview/note-preview.tsx'
 import './note-list.css';
 import CustomButton from '../custom-button/custom-button.tsx'
 import Icon from '../icon/icon.tsx'
 import {useNotes} from '../../context/NotesContext.tsx'
 import {Note} from '../../types/note.ts'
+import EmptyNotesText from '../empty-notes-text/empty-notes-text.tsx'
+import MobileHeader from '../../features/mobile/components/mobile-header/mobile-header.tsx'
 
-export default function NoteList({mobile}: {mobile: boolean}) {
-    const { notes, dispatch, activeNote } = useNotes();
+type NoteListProps = {
+    mobile: boolean;
+}
 
-    function handleNoteClick(note: Note) {
-        dispatch({ type: 'SET_ACTIVE_NOTE', payload: note });
+export default function NoteList({mobile}: NoteListProps) {
+    const {filteredNotes, dispatch, activeNote, filter} = useNotes();
+
+    const handleNoteClick = (note: Note) => {
+        dispatch({type: 'SET_ACTIVE_NOTE', payload: note});
+    }
+
+    const createNewNote = () => {
+        dispatch({type: 'TOGGLE_CREATE_MODE', payload: true});
     }
 
     return (
         <div className='note-list'>
-            {mobile && <h1 className='note-list__heading text-1'>Mobile Note List</h1>}
+            {mobile && <MobileHeader/>}
             {!mobile &&
                 <div className='note-list__btn-container'>
-                    <CustomButton fullWidth={true} type='default-primary' onClick={() => console.log('Clicked')}>
+                    <CustomButton fullWidth={true} type='default-primary' onClick={() => createNewNote()}>
                         <Icon id='plus' size={14}/>
                         <span>Create New Note</span>
                     </CustomButton>
                 </div>
             }
-            <p className='note-list__text text-5'>All your archived notes are stored here. You can restore or delete them anytime.</p>
+
+            {filter.type === 'ARCHIVED' &&
+                <p className='note-list__text text-5'>All your archived notes are stored here. You can restore or delete
+                    them anytime.</p>}
+            {filter.type === 'TAG' &&
+                <p className='note-list__text text-5'>All notes with the <span>"{filter.tag}"</span> tag are shown here.
+                </p>}
+
             <div className='note-list__items'>
-                {notes.map(note => (
-                    <NoteListItem
+                {filteredNotes.map(note => (
+                    <NotePreview
                         key={note.id}
                         note={note}
-                        isActive={note.id === activeNote?.id}
+                        isActive={mobile ? false : note.id === activeNote?.id}
                         onClick={() => handleNoteClick(note)}
                     />
                 ))}
             </div>
+
+            {filter.type === 'ARCHIVED' && filteredNotes.length === 0 &&
+                <EmptyNotesText>
+                    No notes have been archived yet. Move notes here for safekeeping, or <u>create a new note.</u>
+                </EmptyNotesText>
+
+            }
+            {filter.type === 'ALL' && filteredNotes.length === 0 &&
+                <EmptyNotesText>
+                    You don’t have any notes yet. Start a new note to capture your thoughts and ideas.
+                </EmptyNotesText>
+            }
         </div>
     )
 }

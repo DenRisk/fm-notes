@@ -9,28 +9,80 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     column-gap: var(--spacing-050);
+
+    &:disabled {
+        pointer-events: none;
+        cursor: unset;
+    }
 }
 
 .custom-button--default-primary {
     background-color: var(--color-blue-500);
     color: var(--color-neutral-0);
+
+    &:hover {
+        background-color: var(--color-blue-700);
+    }
+
+    &:active {
+        background-color: var(--color-blue-500);
+    }
+
+    &:disabled {
+        background-color: var(--color-neutral-100);
+        color: var(--color-neutral-300);
+    }
 }
 
 .custom-button--default-secondary {
     background-color: var(--color-neutral-200);
     color: var(--color-neutral-600);
+
+    &:hover {
+        background-color: var(--color-neutral-0);
+        border: 1px inset solid var(--color-neutral-300);
+    }
+
+    &:disabled {
+        background-color: var(--color-neutral-100);
+        color: var(--color-neutral-300);
+    }
 }
 
 .custom-button--transparent-primary {
     padding: 0;
     background-color: transparent;
     color: var(--color-neutral-600);
+
+    &:hover {
+        color: var(--color-neutral-950);
+    }
+
+    &:active {
+        color: var(--color-neutral-600);
+    }
+
+    &:disabled {
+        color: var(--color-neutral-300);
+    }
 }
 
 .custom-button--transparent-secondary {
     padding: 0;
     background-color: transparent;
     color: var(--color-blue-500);
+
+    &:hover {
+        color: var(--color-blue-700);
+    }
+
+    &:active {
+        color: var(--color-blue-500);
+    }
+
+    &:disabled {
+        color: var(--color-neutral-300);
+    }
 }
 
 .custom-button--icon {
@@ -38,6 +90,17 @@
     background-color: transparent;
     color: var(--color-neutral-600);
 
+    &:hover {
+        color: var(--color-neutral-950);
+    }
+
+    &:active {
+        color: var(--color-neutral-600);
+    }
+
+    &:disabled {
+        color: var(--color-neutral-300);
+    }
 }
 
 .custom-button--full-width {

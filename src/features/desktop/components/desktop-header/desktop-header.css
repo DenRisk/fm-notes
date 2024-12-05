@@ -12,7 +12,6 @@
     column-gap: var(--spacing-300);
 }
 
-.settings {
-    width: 24px;
-    height: 24px;
+.desktop-header__heading--tagged {
+    color: var(--color-neutral-600);
 }

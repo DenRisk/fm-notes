@@ -6,6 +6,13 @@
     min-width: 300px;
     padding: var(--spacing-100) var(--spacing-200);
     column-gap: var(--spacing-100);
+    min-height: 52px;
+    background-color: var(--color-neutral-50);
+
+    @media (min-width: 1200px) {
+        min-height: unset;
+        background-color: var(--color-neutral-0);
+    }
 
     img {
         width: 20px;
