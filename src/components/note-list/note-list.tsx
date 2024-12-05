@@ -12,7 +12,7 @@ type NoteListProps = {
 }
 
 export default function NoteList({mobile}: NoteListProps) {
-    const {filteredNotes, dispatch, activeNote, filter} = useNotes();
+    const {filteredNotes, dispatch, activeNote, filter, isCreating, currentNoteState} = useNotes();
 
     const handleNoteClick = (note: Note) => {
         dispatch({type: 'SET_ACTIVE_NOTE', payload: note});
@@ -32,6 +32,11 @@ export default function NoteList({mobile}: NoteListProps) {
                         <span>Create New Note</span>
                     </CustomButton>
                 </div>
+            }
+
+            {
+                isCreating &&
+                <div className='note-list__creation text-3'>{currentNoteState.title ? currentNoteState.title : 'Untitled Note'}</div>
             }
 
             {filter.type === 'ARCHIVED' &&

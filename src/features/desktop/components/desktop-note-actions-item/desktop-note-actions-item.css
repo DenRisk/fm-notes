@@ -6,7 +6,19 @@
     align-items: center;
     column-gap: var(--spacing-100);
     width: 100%;
-}
-.desktop-note-actions-item__text {
+    transition: background-color 0.2s ease-in-out;
     color: var(--color-neutral-950);
+
+    &:hover {
+        background-color: var(--color-neutral-100);
+        color: var(--color-neutral-600);
+        border: 1px solid transparent;
+    }
+
+    &:disabled {
+        pointer-events: none;
+        cursor: unset;
+        background-color: var(--color-neutral-100);
+        color: var(--color-neutral-300);
+    }
 }

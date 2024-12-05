@@ -6,12 +6,12 @@ import {hasSameContent} from '../../../../helpers/note-helpers.ts'
 
 
 export default function MobileDetailsControls() {
-    const {activeNote, currentNoteState, isCreating, handleCancel, handleSaveNote, handleDetailsViewChange, handleArchiveNote, handleDeleteNote} = useNoteActions()
+    const {activeNote, currentNoteState, isCreating, handleCancel, handleSaveNote, handleViewChange, handleArchiveNote, handleDeleteNote} = useNoteActions()
     const isDisabled = hasSameContent(activeNote, isCreating, currentNoteState);
 
     return (
         <div className='mobile-details-controls'>
-            <CustomButton type='transparent-primary' fullWidth={false} onClick={(e) => handleDetailsViewChange(e, false, true)}>
+            <CustomButton type='transparent-primary' fullWidth={false} onClick={(e) => handleViewChange(e, 'LIST', true)}>
                 <Icon id='chevronLeft' size={18} clickable={true}/>
                 <span>Go Back</span>
             </CustomButton>

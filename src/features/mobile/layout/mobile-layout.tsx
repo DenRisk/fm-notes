@@ -7,16 +7,18 @@ import MobileLogoSection from '../components/mobile-logo-section/mobile-logo-sec
 import MobileContent from '../components/mobile-content/mobile-content.tsx'
 import MobileNoteDetails from '../components/mobile-note-details/mobile-note-details.tsx'
 import {useNotes} from '../../../context/NotesContext.tsx'
+import MobileTagList from '../components/mobile-tag-list/mobile-tag-list.tsx'
 
 export default function MobileLayout() {
-    const {isDetailsView} = useNotes()
+    const {view} = useNotes()
 
     return (
         <div className="mobile-layout">
             <MobileLogoSection/>
             <MobileContent>
-                {!isDetailsView && <NoteList mobile={true}/>}
-                {isDetailsView && <MobileNoteDetails/>}
+                {view === 'LIST' && <NoteList mobile={true}/>}
+                {view === 'DETAILS' && <MobileNoteDetails/>}
+                {view === 'TAGS' && <MobileTagList/>}
             </MobileContent>
             <MobileNavigation/>
         </div>

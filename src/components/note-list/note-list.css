@@ -16,3 +16,8 @@
     max-height: calc(100% - 74px - 40px);
     scrollbar-width: none;
 }
+
+.note-list__creation {
+    padding: var(--spacing-100);
+    background-color: var(--color-neutral-100);
+}

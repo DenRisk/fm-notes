@@ -1,6 +1,7 @@
 import {useNotes} from '../context/NotesContext.tsx'
 import {Note} from '../types/note.ts'
 import {v4 as uuidv4} from 'uuid';
+import {ContentView} from '../context/NotesProvider.tsx'
 
 
 export function useNoteActions() {
@@ -25,7 +26,7 @@ export function useNoteActions() {
             const newNote: Note = {
                 id: uuidv4(),
                 title,
-                tags: tags.split(','),
+                tags: tags ? tags.split(',') : [],
                 content: noteContent,
                 lastEdited: new Date().toISOString(),
                 isArchived: false,
@@ -85,9 +86,9 @@ export function useNoteActions() {
         }
     }
 
-    const handleDetailsViewChange = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, showDetails: boolean, resetCreatingState?: boolean) => {
+    const handleViewChange = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, view: ContentView, resetCreatingState?: boolean) => {
         e.preventDefault();
-        dispatch({type: 'TOGGLE_DETAILS_VIEW', payload: showDetails});
+        dispatch({type: 'TOGGLE_VIEW', payload: view});
 
         if (resetCreatingState) {
             dispatch({type: 'TOGGLE_CREATE_MODE', payload: false});
@@ -105,6 +106,6 @@ export function useNoteActions() {
         handleCancel,
         handleDeleteNote,
         handleArchiveNote,
-        handleDetailsViewChange
+        handleViewChange
     };
 }

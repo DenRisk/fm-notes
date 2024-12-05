@@ -3,12 +3,12 @@ import MobileNavigationItem from '../mobile-navigation-item/mobile-navigation-it
 import {useNotes} from '../../../../context/NotesContext.tsx'
 
 export default function MobileNavigation() {
-    const {filter, dispatch, isCreating} = useNotes()
+    const {filter, dispatch, view} = useNotes()
 
     const handleSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
         if (filter.type !== 'SEARCH') {
-            dispatch({type: 'TOGGLE_DETAILS_VIEW', payload: false})
+            dispatch({type: 'TOGGLE_VIEW', payload: 'LIST'})
             dispatch({type: 'SET_FILTER', payload: {type: 'SEARCH', searchTerm: ''}})
         }
     }
@@ -16,7 +16,7 @@ export default function MobileNavigation() {
     const handleHome = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
         if (filter.type !== 'ALL') {
-            dispatch({type: 'TOGGLE_DETAILS_VIEW', payload: false})
+            dispatch({type: 'TOGGLE_VIEW', payload: 'LIST'})
             dispatch({type: 'SET_FILTER', payload: {type: 'ALL'}})
         }
     }
@@ -24,22 +24,31 @@ export default function MobileNavigation() {
     const handleArchived = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
         if (filter.type !== 'ARCHIVED') {
-            dispatch({type: 'TOGGLE_DETAILS_VIEW', payload: false})
+            dispatch({type: 'TOGGLE_VIEW', payload: 'LIST'})
             dispatch({type: 'SET_FILTER', payload: {type: 'ARCHIVED'}})
         }
     }
 
+    const handleTags = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault()
+        dispatch({type: 'TOGGLE_VIEW', payload: 'TAGS'})
+    }
+
     return (
         <nav className='mobile-navigation'>
-            <MobileNavigationItem id='home' label='Home' onHandleClick={handleHome} selected={!isCreating && filter.type === 'ALL'}/>
+            <MobileNavigationItem id='home' label='Home' onHandleClick={handleHome}
+                                  selected={view === 'LIST' && filter.type === 'ALL'}/>
             <div className="mobile-navigation__divider"/>
-            <MobileNavigationItem id='search' label='Search' onHandleClick={handleSearch} selected={!isCreating && filter.type === 'SEARCH'}/>
+            <MobileNavigationItem id='search' label='Search' onHandleClick={handleSearch}
+                                  selected={view === 'LIST' && filter.type === 'SEARCH'}/>
             <div className="mobile-navigation__divider"/>
-            <MobileNavigationItem id='archived' label='Archived' onHandleClick={handleArchived} selected={!isCreating && filter.type === 'ARCHIVED'}/>
+            <MobileNavigationItem id='archived' label='Archived' onHandleClick={handleArchived}
+                                  selected={view === 'LIST' && filter.type === 'ARCHIVED'}/>
             <div className="mobile-navigation__divider"/>
-            <MobileNavigationItem id='tag' label='Tags' onHandleClick={() => console.log('Tags')} selected={false}/>
+            <MobileNavigationItem id='tag' label='Tags' onHandleClick={handleTags} selected={view === 'TAGS'}/>
             <div className="mobile-navigation__divider"/>
-            <MobileNavigationItem id='settings' label='Settings' onHandleClick={() => console.log('Settings')} selected={false}/>
+            <MobileNavigationItem id='settings' label='Settings' onHandleClick={() => console.log('Settings')}
+                                  selected={false}/>
         </nav>
     )
 }

@@ -1,0 +1,5 @@
+.mobile-tag-list {
+    h1 {
+        margin-bottom: var(--spacing-200);
+    }
+}

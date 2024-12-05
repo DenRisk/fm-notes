@@ -7,7 +7,7 @@ export default function MobileAddNoteButton() {
     const {dispatch} = useNotes();
 
     const createNewNote = () => {
-        dispatch({type: 'TOGGLE_DETAILS_VIEW', payload: true});
+        dispatch({type: 'TOGGLE_VIEW', payload: 'DETAILS'});
         dispatch({type: 'TOGGLE_CREATE_MODE', payload: true});
     }
 

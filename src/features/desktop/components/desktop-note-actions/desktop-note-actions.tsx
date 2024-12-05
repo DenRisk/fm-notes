@@ -13,12 +13,12 @@ export default function DesktopNoteActions() {
                     <DesktopNoteActionsItem
                         iconId={'archived'}
                         label={'Archive Note'}
-                        onClick={() => handleArchiveNote()}
+                        onClick={handleArchiveNote}
                     />
                     <DesktopNoteActionsItem
                         iconId={'delete'}
                         label={'Delete Note'}
-                        onClick={() => handleDeleteNote()}
+                        onClick={handleDeleteNote}
                     />
                 </>
             }

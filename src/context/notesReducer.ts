@@ -1,5 +1,5 @@
 import {Note} from '../types/note.ts'
-import {FilterType, NotesState} from './NotesProvider.tsx'
+import {ContentView, FilterType, NotesState} from './NotesProvider.tsx'
 
 export type NotesAction =
     | { type: 'ADD_NOTE'; payload: Note }
@@ -8,7 +8,7 @@ export type NotesAction =
     | { type: 'SET_ACTIVE_NOTE'; payload: Note | null }
     | { type: 'SET_FILTER'; payload: { type: FilterType; tag?: string, searchTerm?: string } }
     | { type: 'TOGGLE_CREATE_MODE'; payload: boolean }
-    | { type: 'TOGGLE_DETAILS_VIEW'; payload: boolean }
+    | { type: 'TOGGLE_VIEW'; payload: ContentView }
     | { type: 'UPDATE_NOTE_STATE'; payload: { title?: string, tags?: string, content?: string } }
 
 
@@ -17,7 +17,7 @@ export const notesReducer = (state: NotesState, action: NotesAction): NotesState
         case 'ADD_NOTE':
             return {
                 ...state,
-                initialNotes: [...state.initialNotes, action.payload],
+                initialNotes: [action.payload, ...state.initialNotes],
                 activeNote: action.payload,
                 currentNoteState: {
                     title: action.payload.title,
@@ -45,7 +45,7 @@ export const notesReducer = (state: NotesState, action: NotesAction): NotesState
                 ...state,
                 activeNote: action.payload,
                 isCreating: false,
-                isDetailsView: true,
+                view: 'DETAILS',
                 currentNoteState: {
                     title: action.payload?.title ?? '',
                     tags: action.payload?.tags.join(',') ?? '',
@@ -72,10 +72,10 @@ export const notesReducer = (state: NotesState, action: NotesAction): NotesState
                     content: state.activeNote?.content ?? ''
                 }
             };
-        case 'TOGGLE_DETAILS_VIEW':
+        case 'TOGGLE_VIEW':
             return {
                 ...state,
-                isDetailsView: action.payload
+                view: action.payload
             };
         case 'UPDATE_NOTE_STATE':
             return {

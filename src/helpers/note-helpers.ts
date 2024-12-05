@@ -1,5 +1,7 @@
 import {Note} from '../types/note.ts'
 import {FilterType} from '../context/NotesProvider.tsx'
+import { format } from 'date-fns';
+
 
 export const getFilteredNotes = (notes: Note[], filter: {
     type: FilterType;
@@ -42,3 +44,8 @@ export const hasSameContent = ((activeNote: Note | null, isCreating: boolean, cu
     const {content} = currentNoteState;
     return content === activeNote.content
 });
+
+export const formatDate = (isoString: string): string => {
+    const date = new Date(isoString);
+    return format(date, "dd MMM yyyy");
+};
