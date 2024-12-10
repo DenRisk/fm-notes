@@ -1,6 +1,6 @@
 import './mobile-navigation.css'
 import MobileNavigationItem from '../mobile-navigation-item/mobile-navigation-item.tsx'
-import {useNotes} from '../../../../context/NotesContext.tsx'
+import {useNotes} from '../../../../context/notes/NotesContext.tsx'
 
 export default function MobileNavigation() {
     const {filter, dispatch, view} = useNotes()
@@ -34,21 +34,47 @@ export default function MobileNavigation() {
         dispatch({type: 'TOGGLE_VIEW', payload: 'TAGS'})
     }
 
+    const handleSettings = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault()
+        dispatch({type: 'TOGGLE_VIEW', payload: 'SETTINGS'})
+    }
+
     return (
         <nav className='mobile-navigation'>
-            <MobileNavigationItem id='home' label='Home' onHandleClick={handleHome}
-                                  selected={view === 'LIST' && filter.type === 'ALL'}/>
+            <MobileNavigationItem
+                id='home'
+                label='Home'
+                onHandleClick={handleHome}
+                selected={view === 'LIST' && filter.type === 'ALL'}
+            />
             <div className="mobile-navigation__divider"/>
-            <MobileNavigationItem id='search' label='Search' onHandleClick={handleSearch}
-                                  selected={view === 'LIST' && filter.type === 'SEARCH'}/>
+            <MobileNavigationItem
+                id='search'
+                label='Search'
+                onHandleClick={handleSearch}
+                selected={view === 'LIST' && filter.type === 'SEARCH'}
+            />
             <div className="mobile-navigation__divider"/>
-            <MobileNavigationItem id='archived' label='Archived' onHandleClick={handleArchived}
-                                  selected={view === 'LIST' && filter.type === 'ARCHIVED'}/>
+            <MobileNavigationItem
+                id='archived'
+                label='Archived'
+                onHandleClick={handleArchived}
+                selected={view === 'LIST' && filter.type === 'ARCHIVED'}
+            />
             <div className="mobile-navigation__divider"/>
-            <MobileNavigationItem id='tag' label='Tags' onHandleClick={handleTags} selected={view === 'TAGS'}/>
+            <MobileNavigationItem
+                id='tag'
+                label='Tags'
+                onHandleClick={handleTags}
+                selected={view === 'TAGS'}
+            />
             <div className="mobile-navigation__divider"/>
-            <MobileNavigationItem id='settings' label='Settings' onHandleClick={() => console.log('Settings')}
-                                  selected={false}/>
+            <MobileNavigationItem
+                id='settings'
+                label='Settings'
+                onHandleClick={handleSettings}
+                selected={view === 'SETTINGS'}
+            />
         </nav>
     )
 }

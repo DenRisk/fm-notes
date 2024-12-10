@@ -26,6 +26,8 @@
     width: 100%;
     background-color: transparent;
     font-size: var(--font-size-sm);
+    color: var(--color-neutral-950);
+
 
     &::placeholder {
         color: var(--color-neutral-500);

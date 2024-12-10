@@ -1,11 +1,12 @@
 import './mobile-header.css';
-import {useNotes} from '../../../../context/NotesContext.tsx'
+import {useNotes} from '../../../../context/notes/NotesContext.tsx'
 import {SearchInput} from '../../../../components/search-input/search-input.tsx'
 
 export default function MobileHeader() {
     const {filter, dispatch} = useNotes()
 
     const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        dispatch({type: 'TOGGLE_VIEW', payload: 'LIST'})
         dispatch({type: 'SET_FILTER', payload: {type: 'SEARCH', searchTerm: e.target.value}})
     }
 

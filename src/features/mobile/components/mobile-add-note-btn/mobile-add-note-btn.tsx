@@ -1,6 +1,6 @@
 import './mobile-add-note-btn.css';
 import Icon from '../../../../components/icon/icon.tsx'
-import {useNotes} from '../../../../context/NotesContext.tsx'
+import {useNotes} from '../../../../context/notes/NotesContext.tsx'
 
 
 export default function MobileAddNoteButton() {

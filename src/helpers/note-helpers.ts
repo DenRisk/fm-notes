@@ -1,5 +1,5 @@
 import {Note} from '../types/note.ts'
-import {FilterType} from '../context/NotesProvider.tsx'
+import {FilterType} from '../context/notes/NotesProvider.tsx'
 import { format } from 'date-fns';
 
 
@@ -10,13 +10,13 @@ export const getFilteredNotes = (notes: Note[], filter: {
 }): Note[] => {
     switch (filter.type) {
         case 'ALL':
-            return notes;
+            return notes.filter(note => !note.isArchived);
         case 'ARCHIVED':
             return notes.filter(note => note.isArchived);
         case 'TAG':
             return notes.filter(note => note.tags.includes(filter.tag || ''));
         case 'SEARCH':
-            return notes.filter(note => note.title.toLowerCase().includes(filter.searchTerm?.toLowerCase() || ''));
+            return notes.filter(note => note.title.toLowerCase().includes(filter.searchTerm?.toLowerCase() || '') && !note.isArchived);
         default:
             return notes;
     }

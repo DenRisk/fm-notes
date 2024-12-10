@@ -2,7 +2,7 @@ import NotePreview from '../note-preview/note-preview.tsx'
 import './note-list.css';
 import CustomButton from '../custom-button/custom-button.tsx'
 import Icon from '../icon/icon.tsx'
-import {useNotes} from '../../context/NotesContext.tsx'
+import {useNotes} from '../../context/notes/NotesContext.tsx'
 import {Note} from '../../types/note.ts'
 import EmptyNotesText from '../empty-notes-text/empty-notes-text.tsx'
 import MobileHeader from '../../features/mobile/components/mobile-header/mobile-header.tsx'
@@ -19,6 +19,7 @@ export default function NoteList({mobile}: NoteListProps) {
     }
 
     const createNewNote = () => {
+        dispatch({type: 'SET_FILTER', payload: {type: 'ALL'}});
         dispatch({type: 'TOGGLE_CREATE_MODE', payload: true});
     }
 

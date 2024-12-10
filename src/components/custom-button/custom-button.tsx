@@ -3,7 +3,7 @@ import './custom-button.css';
 type ButtonProps = {
     children: React.ReactNode;
     fullWidth: boolean;
-    type: "default-primary" | "default-secondary" | "transparent-primary" | "transparent-secondary" | 'icon';
+    type: "default-primary" | "default-secondary"| "default-tertiary" | "transparent-primary" | "transparent-secondary" | 'icon';
     onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
     disabled?: boolean
 }

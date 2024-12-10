@@ -1,4 +1,4 @@
-import {Note} from '../types/note.ts'
+import {Note} from '../../types/note.ts'
 import {ContentView, FilterType, NotesState} from './NotesProvider.tsx'
 
 export type NotesAction =

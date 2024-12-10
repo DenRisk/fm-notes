@@ -1,4 +1,4 @@
-.desktop-sidebar-item {
+.navigation-item {
     display: flex;
     align-items: center;
     padding: var(--spacing-150);
@@ -13,20 +13,24 @@
     @media (min-width: 1200px) {
         border: unset;
     }
+
+    &:hover {
+        background-color: var(--color-neutral-100);
+    }
 }
 
-.desktop-sidebar-item__content {
+.navigation-item__content {
     display: flex;
     column-gap: var(--spacing-100);
     align-items: center;
 
 }
 
-.desktop-sidebar-item--selected {
+.navigation-item--selected {
     background-color: var(--color-neutral-100);
     color: var(--color-blue-500);
 }
 
-.desktop-sidebar-item--selected .text-4 {
+.navigation-item--selected .text-4 {
     color: var(--color-neutral-950);
 }

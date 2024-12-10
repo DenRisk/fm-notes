@@ -1,0 +1,21 @@
+.color-selection__heading {
+    color: var(--color-neutral-950);
+    margin-bottom: var(--spacing-100);
+}
+
+.color-selection__paragraph {
+    margin-bottom: var(--spacing-300);
+}
+
+.color-selection__checkboxes {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--spacing-200);
+    margin-bottom: var(--spacing-300);
+}
+
+.color-selection__btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

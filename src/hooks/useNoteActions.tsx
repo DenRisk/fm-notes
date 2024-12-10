@@ -1,11 +1,13 @@
-import {useNotes} from '../context/NotesContext.tsx'
+import {useNotes} from '../context/notes/NotesContext.tsx'
 import {Note} from '../types/note.ts'
 import {v4 as uuidv4} from 'uuid';
-import {ContentView} from '../context/NotesProvider.tsx'
+import {ContentView} from '../context/notes/NotesProvider.tsx'
+import {useDialogActions} from './useDialogActions.tsx'
 
 
 export function useNoteActions() {
     const {activeNote, isCreating, dispatch, currentNoteState} = useNotes();
+    const {addToast} = useDialogActions()
     const {title, tags, content: noteContent} = currentNoteState;
 
     const handleTextareaChange = (newValue: string) => {
@@ -44,6 +46,9 @@ export function useNoteActions() {
 
             dispatch({type: 'UPDATE_NOTE', payload: updatedNote});
         }
+
+        // Add Toast for saving Note
+        addToast('save-note')
     };
 
     const handleCancel = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -75,6 +80,10 @@ export function useNoteActions() {
 
         if (activeNote) {
             dispatch({type: 'DELETE_NOTE', payload: activeNote.id})
+            dispatch({type: 'TOGGLE_VIEW', payload: 'LIST'});
+
+            // Add Toast for deleting Note
+            addToast('delete-note')
         }
     }
 
@@ -83,6 +92,11 @@ export function useNoteActions() {
 
         if (activeNote) {
             dispatch({type: 'UPDATE_NOTE', payload: {...activeNote, isArchived: true}})
+            dispatch({type: 'TOGGLE_VIEW', payload: 'LIST'});
+            dispatch({type: 'SET_FILTER', payload: {type: 'ARCHIVED'}});
+
+            // Add Toast for archiving Note
+            addToast('archive-note')
         }
     }
 

@@ -1,16 +1,17 @@
 import './desktop-sidebar.css'
 import Logo from '../../../../components/logo/logo.tsx'
-import DesktopSidebarItem from '../desktop-sidebar-item/desktop-sidebar-item.tsx'
-import {useNotes} from '../../../../context/NotesContext.tsx'
-import {FilterType} from '../../../../context/NotesProvider.tsx'
+import NavigationItem from '../../../../components/navigation-item/navigation-item.tsx'
+import {useNotes} from '../../../../context/notes/NotesContext.tsx'
+import {FilterType} from '../../../../context/notes/NotesProvider.tsx'
 import {getUniqueTagList} from '../../../../helpers/note-helpers.ts'
 
 export default function DesktopSidebar() {
-    const {initialNotes, filter, dispatch} = useNotes();
+    const {initialNotes, filter, dispatch, view} = useNotes();
 
     const uniqueTagList = getUniqueTagList(initialNotes);
 
     const updateFilter = (type: FilterType, tag?: string) => {
+        dispatch({type: 'TOGGLE_VIEW', payload: 'LIST'});
         dispatch({type: 'SET_FILTER', payload: {type, tag}});
     };
 
@@ -20,16 +21,16 @@ export default function DesktopSidebar() {
                 <Logo/>
             </div>
             <div className='desktop-sidebar__categories'>
-                <DesktopSidebarItem
+                <NavigationItem
                     iconId='home'
                     label='All Notes'
-                    selected={filter.type === 'ALL'}
+                    selected={filter.type === 'ALL' && view !== 'SETTINGS'}
                     onClick={() => updateFilter('ALL')}
                 />
-                <DesktopSidebarItem
+                <NavigationItem
                     iconId='archived'
                     label='Archived Notes'
-                    selected={filter.type === 'ARCHIVED'}
+                    selected={filter.type === 'ARCHIVED' && view !== 'SETTINGS'}
                     onClick={() => updateFilter('ARCHIVED')}
                 />
             </div>
@@ -37,11 +38,11 @@ export default function DesktopSidebar() {
             <div className='desktop-sidebar__tags'>
                 {
                     uniqueTagList.map(tag => (
-                        <DesktopSidebarItem
+                        <NavigationItem
                             key={tag}
                             iconId='tag'
                             label={tag}
-                            selected={filter.type === 'TAG' && filter.tag === tag}
+                            selected={filter.type === 'TAG' && filter.tag === tag && view !== 'SETTINGS'}
                             onClick={() => updateFilter('TAG', tag)}
                         />
                     ))

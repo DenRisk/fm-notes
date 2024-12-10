@@ -1,8 +1,8 @@
 import './mobile-tag-list.css'
-import {useNotes} from '../../../../context/NotesContext.tsx'
+import {useNotes} from '../../../../context/notes/NotesContext.tsx'
 import {getUniqueTagList} from '../../../../helpers/note-helpers.ts'
-import DesktopSidebarItem from '../../../desktop/components/desktop-sidebar-item/desktop-sidebar-item.tsx'
-import {FilterType} from '../../../../context/NotesProvider.tsx'
+import NavigationItem from '../../../../components/navigation-item/navigation-item.tsx'
+import {FilterType} from '../../../../context/notes/NotesProvider.tsx'
 
 
 export default function MobileTagList() {
@@ -19,7 +19,7 @@ export default function MobileTagList() {
         <div className='mobile-tag-list'>
             <h1 className='text-1'>Tags</h1>
             {uniqueTagList.map(tag => (
-                <DesktopSidebarItem key={tag} iconId='tag' label={tag} onClick={() => updateFilter('TAG', tag)}/>
+                <NavigationItem key={tag} iconId='tag' label={tag} onClick={() => updateFilter('TAG', tag)}/>
             ))
             }
         </div>

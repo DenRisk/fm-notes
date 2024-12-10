@@ -35,6 +35,7 @@ body, html {
     font-size: var(--font-size-base);
     line-height: var(--line-height-base);
     background-color: var(--color-neutral-100);
+    color: var(--color-neutral-950);
 
     @media (min-width: 1200px) {
         background-color: var(--color-neutral-0);

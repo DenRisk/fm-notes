@@ -1,0 +1,9 @@
+.mobile-settings__heading {
+    color: var(--color-neutral-950);
+    margin-bottom: var(--spacing-200);
+}
+
+.setting-selection__nav {
+    margin-bottom: var(--spacing-200);
+    color: var(--color-neutral-600);
+}

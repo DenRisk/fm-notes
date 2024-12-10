@@ -1,8 +1,8 @@
 import {ReactNode, useReducer} from 'react';
-import {NotesContext} from './NotesContext';
-import {Note} from '../types/note.ts';
+import {NotesContext} from './NotesContext.tsx';
+import {Note} from '../../types/note.ts';
 import {notesReducer} from './notesReducer.ts'
-import {getFilteredNotes} from '../helpers/note-helpers.ts'
+import {getFilteredNotes} from '../../helpers/note-helpers.ts'
 
 const initialNotes: Note[] = [
     {
@@ -89,7 +89,7 @@ const initialNotes: Note[] = [
 
 export type FilterType = 'ALL' | 'ARCHIVED' | 'TAG' | 'SEARCH';
 
-export type ContentView = 'LIST' | 'DETAILS' | 'TAGS';
+export type ContentView = 'LIST' | 'DETAILS' | 'TAGS'| 'SETTINGS';
 
 export type NotesState = {
     initialNotes: Note[],

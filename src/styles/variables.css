@@ -26,6 +26,8 @@
     --color-green-500: #21C16B;
     --color-green-100: #D1FBE9;
 
+    --color-white: #FFFFFF;
+
     /* Font Size */
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
@@ -83,4 +85,23 @@
 
     /* sidebar */
     --sidebar-width: 272px;
+}
+
+
+:root.dark {
+    --color-neutral-0: #0E121B;
+    --color-neutral-50: #191B25;
+    --color-neutral-100: #232530;
+    --color-neutral-200: #232530;
+    --color-neutral-300: #525866;
+    --color-neutral-400: #99A0AE;
+    --color-neutral-600: #CACFD8;
+    --color-neutral-700: #CACFD8;
+    --color-neutral-800: #F3F5F8;
+    --color-neutral-950: #FFFFFF;
+
+    --color-blue-50: #2B303B;
+
+    --box-shadow-nav: 0 -4px 6px 0 rgba(0, 0, 0, 0.3);
+    --box-shadow-add-btn: 0 7px 11px 0 rgba(0, 0, 0, 0.7);
 }
