@@ -12,7 +12,7 @@ export function SearchInput({onChange}: SearchInputProps) {
             <input
                 type="text"
                 className='search__input'
-                placeholder="Search by title, content, or tags…"
+                placeholder="Search by title or tags…"
                 onChange={onChange}
             />
         </div>

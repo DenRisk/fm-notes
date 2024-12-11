@@ -27,7 +27,7 @@ export function useNoteActions() {
         if (isCreating) {
             const newNote: Note = {
                 id: uuidv4(),
-                title,
+                title: title ? title : 'Untitled Note',
                 tags: tags ? tags.split(',') : [],
                 content: noteContent,
                 lastEdited: new Date().toISOString(),
@@ -100,6 +100,19 @@ export function useNoteActions() {
         }
     }
 
+    const handleRestoreNote = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+
+        if (activeNote) {
+            dispatch({type: 'UPDATE_NOTE', payload: {...activeNote, isArchived: false}})
+            dispatch({type: 'TOGGLE_VIEW', payload: 'LIST'});
+            dispatch({type: 'SET_FILTER', payload: {type: 'ALL'}});
+
+            // Add Toast for archiving Note
+            addToast('restore-note')
+        }
+    }
+
     const handleViewChange = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, view: ContentView, resetCreatingState?: boolean) => {
         e.preventDefault();
         dispatch({type: 'TOGGLE_VIEW', payload: view});
@@ -120,6 +133,7 @@ export function useNoteActions() {
         handleCancel,
         handleDeleteNote,
         handleArchiveNote,
-        handleViewChange
+        handleViewChange,
+        handleRestoreNote
     };
 }

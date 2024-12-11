@@ -12,6 +12,7 @@
 }
 
 .note-list__items {
+    padding: var(--spacing-100);
     overflow-y: auto;
     max-height: calc(100% - 74px - 40px);
     scrollbar-width: none;

@@ -1,6 +1,6 @@
 import {Note} from '../types/note.ts'
 import {FilterType} from '../context/notes/NotesProvider.tsx'
-import { format } from 'date-fns';
+import {format} from 'date-fns';
 
 
 export const getFilteredNotes = (notes: Note[], filter: {
@@ -16,7 +16,14 @@ export const getFilteredNotes = (notes: Note[], filter: {
         case 'TAG':
             return notes.filter(note => note.tags.includes(filter.tag || ''));
         case 'SEARCH':
-            return notes.filter(note => note.title.toLowerCase().includes(filter.searchTerm?.toLowerCase() || '') && !note.isArchived);
+            return notes.filter(note => {
+                const searchTerm = filter.searchTerm?.toLowerCase() || '';
+                return (
+                    (note.title.toLowerCase().includes(searchTerm) && !note.isArchived ||
+                        note.tags.some(tag => tag.toLowerCase().includes(searchTerm))) &&
+                    !note.isArchived
+                );
+            });
         default:
             return notes;
     }

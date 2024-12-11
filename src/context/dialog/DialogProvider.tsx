@@ -2,7 +2,7 @@ import {ReactNode, useReducer} from 'react';
 import {DialogContext} from './DialogContext.tsx'
 import {dialogReducer} from './dialogReducer.ts'
 
-export type ModalIds = 'archive-note' | 'delete-note'
+export type ModalIds = 'archive-note' | 'delete-note' | 'restore-note'
 export type ToastIds = 'save-note' | 'archive-note' | 'delete-note' |'restore-note' | 'update-settings' | 'change-password' | 'add-tag' | 'remove-tag'
 
 export type DialogState = {

@@ -4,6 +4,8 @@
     height: 100%;
     color: var(--color-neutral-800);
     background-color: var(--color-neutral-0);
+    resize: none;
+    overflow: auto;
 
     &::placeholder {
         var(--color-neutral-700);

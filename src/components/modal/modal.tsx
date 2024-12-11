@@ -16,7 +16,7 @@ type ModalProps = {
 
 export default function Modal() {
     const {modalId, removeModal} = useDialogActions()
-    const {handleArchiveNote, handleDeleteNote} = useNoteActions()
+    const {handleArchiveNote, handleDeleteNote, handleRestoreNote} = useNoteActions()
 
     const deleteNoteAndCloseModal = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         handleDeleteNote(event)
@@ -25,6 +25,11 @@ export default function Modal() {
 
     const archiveNoteAndCloseModal = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         handleArchiveNote(event)
+        removeModal()
+    }
+
+    const restoreNoteAndCloseModal = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        handleRestoreNote(event)
         removeModal()
     }
 
@@ -52,6 +57,18 @@ export default function Modal() {
             theme='red'
             iconId='delete'
             onConfirm={deleteNoteAndCloseModal}
+            onCancel={removeModal}
+        />
+    }
+
+    if (modalId === 'restore-note') {
+        return <ModalContent
+            heading='Restore Note'
+            textContent='Are you sure you want to restore this note? You can find it in the All Notes section and archive it anytime.'
+            confirmText='Restore Note'
+            theme='default'
+            iconId='restore'
+            onConfirm={restoreNoteAndCloseModal}
             onCancel={removeModal}
         />
     }

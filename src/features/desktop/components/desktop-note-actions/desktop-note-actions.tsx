@@ -12,11 +12,20 @@ export default function DesktopNoteActions() {
             {
                 activeNote && view !== 'SETTINGS' &&
                 <>
-                    <DesktopNoteActionsItem
-                        iconId={'archived'}
-                        label={'Archive Note'}
-                        onClick={(e) => setModal(e, 'archive-note')}
-                    />
+                    {
+                        activeNote.isArchived ?
+                            <DesktopNoteActionsItem
+                                iconId='restore'
+                                label='Restore Note'
+                                onClick={(e) => setModal(e, 'restore-note')}
+                            />
+                            :
+                            <DesktopNoteActionsItem
+                                iconId='archived'
+                                label='Archive Note'
+                                onClick={(e) => setModal(e, 'archive-note')}
+                            />
+                    }
                     <DesktopNoteActionsItem
                         iconId={'delete'}
                         label={'Delete Note'}

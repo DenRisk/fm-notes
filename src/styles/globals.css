@@ -96,3 +96,8 @@ input, button, textarea, select {
         transition: none;
     }
 }
+
+button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--color-neutral-800);
+    outline-offset: 2px;
+}
