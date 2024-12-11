@@ -42,7 +42,7 @@ export default function ToastContainer() {
 }
 
 
-function Toast({message, linkText, duration = 5000, onClose, onLinkClick}: ToastProps) {
+function Toast({message, linkText, duration = 4000, onClose, onLinkClick}: ToastProps) {
 
     useEffect(() => {
         const timer = setTimeout(() => {

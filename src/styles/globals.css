@@ -1,19 +1,19 @@
 /* Typography */
 @font-face {
     font-family: 'Inter';
-    src: url('src/assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+    src: url('../assets/fonts/inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
     font-weight: 400 700;
 }
 
 @font-face {
     font-family: 'Noto Serif';
-    src: url('src/assets/fonts/noto-serif/NotoSerif-VariableFont_wdth,wght.ttf') format('truetype');
+    src: url('../assets/fonts/noto-serif/NotoSerif-VariableFont_wdth,wght.ttf') format('truetype');
     font-weight: 400 700;
 }
 
 @font-face {
     font-family: 'Source Code Pro';
-    src: url('src/assets/fonts/source-code-pro/SourceCodePro-VariableFont_wght.ttf') format('truetype');
+    src: url('../assets/fonts/source-code-pro/SourceCodePro-VariableFont_wght.ttf') format('truetype');
     font-weight: 400 700;
 }
 
